@@ -1,0 +1,18 @@
+{
+  "body": "{\"source\":\"tok_visa\",\"storage\":21}",
+  "requestContext": {
+    "identity": {
+      "cognitoIdentityId": "USER-SUB-1234"
+    },
+    "profile": {
+      "name": "Jenny Rosen",
+      "address": {
+        "line1": "510 Townsend St",
+        "postal_code": "98140",
+        "city": "San Francisco",
+        "state": "CA",
+        "country": "US"
+      }
+    }
+  }
+}
