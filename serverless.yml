@@ -19,28 +19,28 @@ provider:
   # rename env.example to .env and uncomment
   # the following line. Also, make sure to not
   # commit your .env.
-  #
 
-resources:
-  # API Gateway Errors
-  - ${file(resources/api-gateway-errors.yml)}
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:DescribeTable
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+      Resource: "arn:aws:dynamodb:us-east-1:*:*"
 
+  resources:
+    # API Gateway Errors
+    - ${file(resources/api-gateway-errors.yml)}
 
-environment:
-  #  SAMPLE_ENV_VAR: ${env:SAMPLE_ENV_VAR}
-  tableName: ${env:tableName}
-  stripeSecretKey: ${env:STRIPE_SECRET_KEY}
+  environment:
+    #  SAMPLE_ENV_VAR: ${env:SAMPLE_ENV_VAR}
+    tableName: ${env:tableName}
+    stripeSecretKey: ${env:STRIPE_SECRET_KEY}
 
-iamRoleStatements:
-  - Effect: Allow
-    Action:
-      - dynamodb:DescribeTable
-      - dynamodb:Query
-      - dynamodb:Scan
-      - dynamodb:GetItem- dynamodb:PutItem
-      - dynamodb:UpdateItem
-      - dynamodb:DeleteItem
-    Resource: "arn:aws:dynamodb:us-east-1:*:*"
 
 functions:
   create:
