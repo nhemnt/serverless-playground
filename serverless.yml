@@ -21,6 +21,11 @@ provider:
   # commit your .env.
   #
 
+resources:
+  # API Gateway Errors
+  - ${file(resources/api-gateway-errors.yml)}
+
+
 environment:
   #  SAMPLE_ENV_VAR: ${env:SAMPLE_ENV_VAR}
   tableName: ${env:tableName}
