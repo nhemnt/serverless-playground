@@ -10,8 +10,8 @@ Resources:
           AttributeType: S
       KeySchema:
         - AttributeName: userId
-        KeyType: HASH
+          KeyType: HASH
         - AttributeName: noteId
-        KeyType: RANGE
-      # Set the capacity to auto-scaleBillingMode: PAY_PER_REQUEST
+          KeyType: RANGE
+      # Set the capacity to auto-scale
       BillingMode: PAY_PER_REQUEST
