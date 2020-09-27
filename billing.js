@@ -12,13 +12,13 @@ export const main = handler(async (event, context) => {
   const stripe = stripePackage(process.env.STRIPE_SECRET_KEY);
   await stripe.charges.create({
     shipping: {
-      name: event.requestContext.profile.name,
+      name: "hemant",
       address: {
-        line1: event.requestContext.profile.address.line1,
-        postal_code: event.requestContext.profile.address.postal_code,
-        city: event.requestContext.profile.address.city,
-        state: event.requestContext.profile.address.state,
-        country: event.requestContext.profile.address.country,
+        line1: "510 Townsend St",
+        postal_code: "98140",
+        city: "San Francisco",
+        state: "CA",
+        country: "US",
       },
     },
     source,
